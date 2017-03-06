@@ -1,0 +1,18 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karaulovskin/workflow.git"
+  },
+  "author": "Karaulovskin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karaulovskin/workflow/issues"
+  },
+  "homepage": "https://github.com/karaulovskin/workflow#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1"
+  }
+}
