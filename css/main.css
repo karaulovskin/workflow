@@ -1,0 +1,170 @@
+/* -------------- common colors -------------- */
+/* --------- normalize --------- */
+/* -------- fonts ---------*/
+/* font-family: 'robotolight'; */
+@font-face {
+  font-family: 'Robotolight';
+  src: url("../fonts/roboto-light-webfont.eot");
+  src: url("../fonts/roboto-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-light-webfont.woff2") format("woff2"), url("../fonts/roboto-light-webfont.woff") format("woff"), url("../fonts/roboto-light-webfont.svg#robotolight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Robotomedium';
+  src: url("../fonts/roboto-medium-webfont.woff2") format("woff2"), url("../fonts/roboto-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* --------- mixins --------- */
+/* --------- mixins --------- */
+/* --------- centered --------- */
+/* --------- compass sprites --------- */
+/* --------- responsive --------- */
+/* --------- adjustment --------- */
+/* --------- adjustment --------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  font-size: 100%;
+}
+@media screen and (max-width: 1224px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+body {
+  font: 16px/1.41 "Robotolight", "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100% !important;
+  margin: 0;
+  color: #252525;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none outside none;
+}
+ul li {
+  padding: 0;
+  left: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  height: 684px;
+  margin-top: -684px;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper:after {
+  content: "";
+  display: block;
+  height: 684px;
+}
+
+.img-cover {
+  position: relative;
+  display: block;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-contain {
+  position: relative;
+  display: block;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.img-fake {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.img-width {
+  max-width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background: rgba(37, 37, 37, 0.35);
+}
+
+/*---------- checkbox -----------*/
+.checkbox {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+
+.checkbox__input:checked + .checkbox__fake::before {
+  display: block;
+}
+
+.checkbox__input:checked + .checkbox__fake--radio {
+  background: #a5d2fb;
+}
+.checkbox__input:checked + .checkbox__fake--radio::before {
+  display: block;
+}
+
+.checkbox__fake--radio:before {
+  content: "";
+  display: none;
+  position: absolute;
+}
+
+/* -------------- misc icons sprite -------------- */
+/* --------- sections --------- */
+/* No files to import found in _sections/**\/* */
