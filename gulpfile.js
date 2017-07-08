@@ -9,7 +9,8 @@ var
 	uglify      = require('gulp-uglify'),
 	rename      = require("gulp-rename"),
 	compass     = require('gulp-compass'),
-	concat      = require('gulp-concat');
+	concat      = require('gulp-concat'),
+	wiredep     = require('wiredep').stream;
 
 
 
@@ -39,6 +40,10 @@ var
 			location    : 'app/scripts/main.js',
 			plugins     : 'app/scripts/_plugins/*.js',
 			destination : 'js'
+		},
+
+		bower : {
+			location    : 'bower.json'
 		},
 
 		browserSync : {
@@ -93,22 +98,33 @@ gulp.task('compass', function() {
 
 /* --------- plugins --------- */
 
-gulp.task('plugins', function() {
-	return gulp.src(paths.js.plugins)
-		.pipe(plumber())
-		.pipe(concat('plugins.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest(paths.js.destination));
-});
+// gulp.task('plugins', function() {
+// 	return gulp.src(paths.js.plugins)
+// 		.pipe(plumber())
+// 		// .pipe(concat('plugins.min.js'))
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest(paths.js.destination));
+// });
 
 /* --------- plugins --------- */
 
 gulp.task('scripts', function() {
 	return gulp.src(paths.js.location)
-		.pipe(plumber())
-		.pipe(uglify())
-		.pipe(rename('main.min.js'))
+		// .pipe(plumber())
+		// .pipe(uglify())
+		// .pipe(rename('main.min.js'))
 		.pipe(gulp.dest(paths.js.destination));
+});
+
+/* --------- wiredep --------- */
+
+gulp.task('wiredep', function () {
+  gulp.src('app/markups/main.jade')
+    .pipe(wiredep({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('app/markups/'));
 });
 
 /* --------- watch --------- */
@@ -118,6 +134,7 @@ gulp.task('watch', function(){
 	gulp.watch(paths.scss.location, ['compass']);
 	gulp.watch(paths.js.location, ['scripts']);
 	gulp.watch(paths.js.plugins, ['plugins']);
+	gulp.watch(paths.bower.location, ['wiredep']);
 	gulp.watch(paths.browserSync.watchPaths).on('change', browserSync.reload);
 });
 
